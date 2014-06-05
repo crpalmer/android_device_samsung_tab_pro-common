@@ -84,7 +84,8 @@ lib/hw/sensors.msm8974.so
 bin/ds_fmc_appd
 bin/efsks
 bin/ks
-#vendor/bin/sec-ril
+lib/libril.so
+lib/libsec-ril.so
 bin/qcks
 bin/qmiproxy
 bin/qmuxd
@@ -109,6 +110,7 @@ vendor/lib/libqmi_encdec.so
 vendor/lib/libqcci_legacy.so
 vendor/lib/libqmi_client_qmux.so
 lib/libreference-ril.so
+lib/libril-qcril-hook-oem.so
 lib/libsecril-client.so
 
 # Time services

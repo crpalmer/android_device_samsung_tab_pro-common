@@ -16,9 +16,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-## Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/mondrianwifi/mondrianwifi-vendor.mk)
-
 ## We are a tablet, not a phone
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -36,7 +33,6 @@ TARGET_SCREEN_WIDTH := 1080
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
@@ -87,13 +83,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
     $(LOCAL_PATH)/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
 
-# NFC doesn't exist
-
-PRODUCT_COPY_FILES_OVERRIDES += \
-   system/etc/permissions/com.android.nfc_extras.xml \
-   system/etc/permissions/android.hardware.nfc.xml \
-   system/etc/permissions/android.hardware.nfc.hce.xml
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -133,14 +122,7 @@ PRODUCT_PACKAGES += \
     macloader \
     crda \
     regulatory.bin \
-    linville.key.pub.pem \
-    wcnss_service \
-    libwcnss_qmi
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+    linville.key.pub.pem
 
 # libxml2 is needed for camera
 PRODUCT_PACKAGES += libxml2
@@ -176,15 +158,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/lib/libsec-ril.so \
-    ril.subscription.types=NV,RUIM \
-    ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10 \
     ro.use_data_netmgrd=false \
     persist.data.netmgrd.qos.enable=true \
-    persist.radio.add_power_save=1 \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.lte_vrat_report=1 \
     persist.rild.nitz_plmn="" \
     persist.rild.nitz_long_ons_0="" \
     persist.rild.nitz_long_ons_1="" \
