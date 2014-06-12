@@ -117,6 +117,11 @@ lib/libsecril-client.so
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
 
+# WiFi
+etc/wifi/bcmdhd_apsta.bin
+etc/wifi/bcmdhd_sta.bin
+etc/wifi/nvram_net.txt
+
 # Camera
 bin/mm-qcamera-daemon
 cameradata/datapattern_420sp.yuv
