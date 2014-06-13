@@ -78,7 +78,8 @@ vendor/lib/libmm-color-convertor.so
 lib/libinvensense_hal.so
 lib/libmllite.so
 lib/libmplmpu.so
-lib/hw/sensors.msm8974.so
+lib/hw/mondrian/sensors.msm8974.so
+lib/hw/picassolte/sensors.msm8974.so
 
 #  Radio
 bin/ds_fmc_appd

@@ -100,3 +100,7 @@ BOARD_HAVE_NEW_QC_GPS :=
 
 # We don't use old-ass RPC
 TARGET_NO_RPC := true
+
+# Handle device specific differences at install time
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/tabpro-common/releasetools
+
