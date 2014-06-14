@@ -10,11 +10,20 @@ bin/thermald
 bin/thermal-engine
 vendor/lib/libthermalclient.so
 
-# Bluetooth
+# Bluetooth/Wifi (wcnss)
 bin/btnvtool
 bin/hci_qcomm_init
-etc/init.qcom.bt.sh
 lib/libbtnv.so
+etc/wifi/bcmdhd_apsta.bin
+etc/wifi/bcmdhd_sta.bin
+etc/wifi/nvram_net.txt
+
+# Bluetooth/Wifi (bcmd)
+vendor/firmware/bcm4335_A0.hcd
+vendor/firmware/bcm4335.hcd
+vendor/firmware/bcm4335_murata.hcd
+vendor/firmware/bcm4335_semco.hcd
+vendor/firmware/BT_FW_VER_BCM4339_003.001.009.0031.0147_N1-LTE.hcd
 
 # GPS
 lib/libloc_api_v02.so
@@ -115,11 +124,6 @@ lib/libsecril-client.so
 # Time services
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
-
-# WiFi
-etc/wifi/bcmdhd_apsta.bin
-etc/wifi/bcmdhd_sta.bin
-etc/wifi/nvram_net.txt
 
 # Camera
 bin/mm-qcamera-daemon
