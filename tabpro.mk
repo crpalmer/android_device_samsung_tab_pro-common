@@ -158,7 +158,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=TabproLteRIL
     ro.use_data_netmgrd=false \
+    rild.libpath=/system/lib/libsec-ril.so \
+    ril.subscription.types=NV,RUIM \
+    ro.ril.hsxpa=1 \
+    ro.ril.gprsclass=10 \
+    persist.radio.add_power_save=1 \
+    persist.radio.apm_sim_not_pwdn=1 \
+    persist.radio.lte_vrat_report=1 \
     persist.data.netmgrd.qos.enable=true \
     persist.rild.nitz_plmn="" \
     persist.rild.nitz_long_ons_0="" \
