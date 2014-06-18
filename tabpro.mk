@@ -148,7 +148,7 @@ PRODUCT_PACKAGES += lights.MSM8974
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/libqc-opt.so
 
-#common build.props
+# Common properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.chipname=msm8974 \
     ro.sf.lcd_density=320 \
@@ -158,7 +158,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=TabproLteRIL
+    ro.telephony.ril_class=TabproLteRIL \
     ro.use_data_netmgrd=false \
     rild.libpath=/system/lib/libsec-ril.so \
     ril.subscription.types=NV,RUIM \
