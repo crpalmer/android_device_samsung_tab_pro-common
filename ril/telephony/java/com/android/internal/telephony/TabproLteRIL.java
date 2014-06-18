@@ -27,6 +27,8 @@ import android.os.Message;
 import android.os.Parcel;
 import android.telephony.PhoneNumberUtils;
 import com.android.internal.telephony.RILConstants;
+import com.android.internal.telephony.uicc.IccCardApplicationStatus;
+import com.android.internal.telephony.uicc.IccCardStatus;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -65,6 +67,48 @@ public class TabproLteRIL extends RIL {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
+    }
+
+    @Override
+    protected Object
+    responseIccCardStatus(Parcel p) {
+        IccCardApplicationStatus appStatus;
+
+        IccCardStatus cardStatus = new IccCardStatus();
+        cardStatus.setCardState(p.readInt());
+        cardStatus.setUniversalPinState(p.readInt());
+        cardStatus.mGsmUmtsSubscriptionAppIndex = p.readInt();
+        cardStatus.mCdmaSubscriptionAppIndex = p.readInt();
+        cardStatus.mImsSubscriptionAppIndex = p.readInt();
+
+        int numApplications = p.readInt();
+
+        // limit to maximum allowed applications
+        if (numApplications > IccCardStatus.CARD_MAX_APPS) {
+            numApplications = IccCardStatus.CARD_MAX_APPS;
+        }
+        cardStatus.mApplications = new IccCardApplicationStatus[numApplications];
+
+        for (int i = 0 ; i < numApplications ; i++) {
+            appStatus = new IccCardApplicationStatus();
+            appStatus.app_type       = appStatus.AppTypeFromRILInt(p.readInt());
+            appStatus.app_state      = appStatus.AppStateFromRILInt(p.readInt());
+            appStatus.perso_substate = appStatus.PersoSubstateFromRILInt(p.readInt());
+            appStatus.aid            = p.readString();
+            appStatus.app_label      = p.readString();
+            appStatus.pin1_replaced  = p.readInt();
+            appStatus.pin1           = appStatus.PinStateFromRILInt(p.readInt());
+            appStatus.pin2           = appStatus.PinStateFromRILInt(p.readInt());
+            // All subsequent readInt()s added for our device
+            p.readInt(); // remaining_count_pin1 - pin1_num_retries
+            p.readInt(); // remaining_count_puk1 - puk1_num_retries
+            p.readInt(); // remaining_count_pin2 - pin2_num_retries
+            p.readInt(); // remaining_count_puk2 - puk2_num_retries
+            p.readInt(); // - perso_unblock_retries
+
+            cardStatus.mApplications[i] = appStatus;
+        }
+        return cardStatus;
     }
 
     protected Object
