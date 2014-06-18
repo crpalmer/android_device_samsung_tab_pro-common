@@ -60,6 +60,7 @@ BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 
 # Build our own RIL rather than add more customization to SamsungQualcommRIL
 BOARD_RIL_CLASS := ../../../device/samsung/tabpro-common/ril
+BOARD_PROVIDES_LIBRIL := true
 
 # Audio settings
 BOARD_USES_CUSTOM_AUDIO_PLATFORM_PATH := device/samsung/tabpro-common/audio/platform
