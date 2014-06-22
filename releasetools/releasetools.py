@@ -17,5 +17,18 @@
 """ Custom OTA commands for d2 devices """
 
 def FullOTA_InstallEnd(info):
+
+  # /system/lib/hw
+
   info.script.AppendExtra('ifelse(is_substring("T32", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/hw/mondrian/* /system/lib/hw"));')
   info.script.AppendExtra('ifelse(is_substring("T525", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/hw/picassolte/* /system/lib/hw"));')
+
+  # /system/lib/
+
+  info.script.AppendExtra('ifelse(is_substring("T32", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/mondrian/* /system/lib/"));')
+  info.script.AppendExtra('ifelse(is_substring("T525", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/picassolte/* /system/lib/"));')
+
+  # /system/vendor/lib/
+
+  info.script.AppendExtra('ifelse(is_substring("T32", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/vendor/lib/mondrian/* /system/vendor/lib/"));')
+  info.script.AppendExtra('ifelse(is_substring("T525", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/vendor/lib/picassolte/* /system/vendor/lib/"));')
