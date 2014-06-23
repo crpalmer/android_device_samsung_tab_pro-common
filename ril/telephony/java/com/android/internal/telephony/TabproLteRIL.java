@@ -140,6 +140,10 @@ public class TabproLteRIL extends RIL {
             dc.isVoice = (0 == voiceSettings) ? false : true;
             p.readInt();  // Added for us, not in RIL.java
             dc.isVoicePrivacy = (0 != p.readInt());
+            p.readInt();  // Added by us, not sure if we're in the right place
+            p.readInt();  // Added by us, not sure if we're in the right place
+            p.readInt();  // Added by us, not sure if we're in the right place
+            p.readInt();  // Added by us, not sure if we're in the right place
             dc.number = p.readString();
             int np = p.readInt();
             dc.numberPresentation = DriverCall.presentationFromCLIP(np);
@@ -204,5 +208,17 @@ public class TabproLteRIL extends RIL {
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest));
 
         send(rr);
+    }
+
+    private void logParcel(Parcel p) {
+        StringBuffer s = new StringBuffer();
+        byte [] bytes = p.marshall();
+
+        for (int i = 0; i < bytes.length; i++) {
+            if (i > 0) s.append(" ");
+            if (i == p.dataPosition()) s.append("*** ");
+            s.append(bytes[i]);
+        }
+        riljLog("parcel position=" + p.dataPosition() + ": " + s);
     }
 }
