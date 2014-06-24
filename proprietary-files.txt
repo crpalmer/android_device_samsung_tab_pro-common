@@ -87,7 +87,8 @@ vendor/lib/libmm-color-convertor.so
 lib/libinvensense_hal.so
 lib/libmllite.so
 lib/libmplmpu.so
-lib/hw/mondrian/sensors.msm8974.so
+lib/hw/mondrianwifi/sensors.msm8974.so
+lib/hw/mondrianlte/sensors.msm8974.so
 lib/hw/picassolte/sensors.msm8974.so
 lib/libak8963c.so
 

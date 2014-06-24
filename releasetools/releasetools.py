@@ -20,7 +20,8 @@ def FullOTA_InstallEnd(info):
 
   # /system/lib/hw
 
-  info.script.AppendExtra('ifelse(is_substring("T32", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/hw/mondrian/* /system/lib/hw"));')
+  info.script.AppendExtra('ifelse(is_substring("T320", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/hw/mondrianwifi/* /system/lib/hw"));')
+  info.script.AppendExtra('ifelse(is_substring("T325", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/hw/mondrianlte/* /system/lib/hw"));')
   info.script.AppendExtra('ifelse(is_substring("T525", getprop("ro.bootloader")), run_program("/sbin/sh", "-c", "busybox cp -R /system/lib/hw/picassolte/* /system/lib/hw"));')
 
   # /system/lib/
