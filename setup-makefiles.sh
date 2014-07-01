@@ -110,7 +110,7 @@ EOF
 
 LOCAL_PATH := \$(call my-dir)
 
-ifneq (\$(filter mondrianwifi mondrianlte picassolte,\$(TARGET_DEVICE)),)
+ifneq (\$(filter mondrianlte picassolte,\$(TARGET_DEVICE)),)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libtime_genoff
