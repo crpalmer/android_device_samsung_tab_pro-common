@@ -358,7 +358,7 @@ on property:ro.debuggable=1
     chmod 0666 /sys/class/mhl/swing
     chmod 0666 /sys/class/mhl/timing
 
-service config_bluetooth /system/bin/sh /init.qcom.bt.sh "onboot"
+service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
     user root
     oneshot
