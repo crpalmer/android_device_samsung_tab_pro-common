@@ -98,7 +98,6 @@ bin/ks
 -lib/libril.so
 lib/libsec-ril.so
 bin/qcks
-bin/qmiproxy
 bin/qmuxd
 bin/rmt_storage
 lib/libatparser.so
