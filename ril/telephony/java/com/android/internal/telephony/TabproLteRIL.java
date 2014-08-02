@@ -32,6 +32,7 @@ import com.android.internal.telephony.uicc.IccCardStatus;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.telephony.SignalStrength;
 
 /**
  * RIL customization for tabpro LTE devices
@@ -192,6 +193,39 @@ public class TabproLteRIL extends RIL {
         }
 
         return response;
+    }
+
+    @Override
+    protected Object responseSignalStrength(Parcel p) {
+        int numInts = 12;
+        int response[];
+
+        response = new int[numInts];
+        for (int i = 0; i < numInts; i++) {
+            response[i] = p.readInt();
+        }
+
+        response[0] &= 0xff; //gsmDbm
+        response[2] %= 0xff; //cdma
+        response[4] %= 0xff; //cdma
+
+        // RIL_LTE_SignalStrength
+        if ((response[7] & 0xff) == 255 || response[7] == 99) {
+            // If LTE is not enabled, clear LTE results
+            // 7-11 must be -1 for GSM signal strength to be used (see
+            // frameworks/base/telephony/java/android/telephony/SignalStrength.java)
+            // make sure lte is disabled
+            response[7] = 99;
+            response[8] = SignalStrength.INVALID;
+            response[9] = SignalStrength.INVALID;
+            response[10] = SignalStrength.INVALID;
+            response[11] = SignalStrength.INVALID;
+        }else{ // lte is gsm on samsung/qualcomm cdma stack
+            response[7] &= 0xff;
+        }
+
+        return new SignalStrength(response[0], response[1], response[2], response[3], response[4], response[5], response[6], response[7], response[8], response[9], response[10], response[11], (p.readInt() != 0));
+
     }
 
     static final int RIL_REQUEST_DIAL_EMERGENCY = 10016;
