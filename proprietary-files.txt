@@ -18,11 +18,11 @@ etc/wifi/bcmdhd_sta.bin
 etc/wifi/nvram_net.txt
 
 # Bluetooth/Wifi (bcmd)
-vendor/firmware/bcm4335_A0.hcd
-vendor/firmware/bcm4335.hcd
-vendor/firmware/bcm4335_murata.hcd
-vendor/firmware/bcm4335_semco.hcd
-vendor/firmware/BT_FW_VER_BCM4339_003.001.009.0031.0147_N1-LTE.hcd
+etc/firmware/bcm4335_A0.hcd
+etc/firmware/bcm4335.hcd
+etc/firmware/bcm4335_murata.hcd
+etc/firmware/bcm4335_semco.hcd
+etc/firmware/BT_FW_VER_BCM4339_003.001.009.0031.0147_N1-LTE.hcd
 
 # GPS
 lib/libloc_api_v02.so
