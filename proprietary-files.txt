@@ -241,8 +241,6 @@ bin/qseecomd
 lib/libdrmdecrypt.so
 lib/libhdcp2.so
 lib/libstagefright_hdcp.so
-# Stock would be: vendor/lib/libWVStreamControlAPI_L1.so:lib/libWVStreamControlAPI_L1.so
-lib/libWVStreamControlAPI_L1.so
 lib/libwvm.so
 lib/drm/libdrmwvmplugin.so
 vendor/lib/libdrmfs.so
@@ -251,6 +249,7 @@ vendor/lib/liboemcrypto.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libQSEEComAPI.so
+vendor/lib/libWVStreamControlAPI_L1.so
 lib/libwvm.so
 
 # IPC router security
