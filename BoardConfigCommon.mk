@@ -30,7 +30,6 @@ TARGET_KERNEL_SOURCE := kernel/samsung/mondrianwifi
 # Audio
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 BOARD_HAVE_SAMSUNG_AUDIO := true
-BOARD_USES_CUSTOM_AUDIO_PLATFORM_PATH := device/samsung/tabpro-common/audio/platform
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_FLUENCE_FOR_VOIP := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
