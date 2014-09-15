@@ -26,6 +26,18 @@ ifneq ($(filter xxmondrianwifi mondrianlte picassolte,$(TARGET_DEVICE)),)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
+KEYMASTER_IMAGES := \
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaster.mdt
+
+KEYMASTER_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/keymaster/,$(notdir $(KEYMASTER_IMAGES)))
+$(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Keymaster firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/`echo $(notdir $@) | sed 's/r\././'` $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_SYMLINKS)
+
 # Create a link to equate /vendor/firmware and /system/etc/firmware
 $(shell mkdir -p $(TARGET_OUT)/vendor; \
     ln -sf /system/etc/firmware $(TARGET_OUT)/vendor/firmware)
