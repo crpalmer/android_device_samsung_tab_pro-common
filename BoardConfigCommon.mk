@@ -43,6 +43,9 @@ TARGET_NO_RPC := true
 # Graphics
 TARGET_HAVE_NEW_GRALLOC := true
 
+# Hardware
+BOARD_HARDWARE_CLASS += device/samsung/tabpro-common/cmhw
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
