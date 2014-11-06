@@ -38,8 +38,4 @@ $(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_SYMLINKS)
 
-# Create a link to equate /vendor/firmware and /system/etc/firmware
-$(shell mkdir -p $(TARGET_OUT)/vendor; \
-    ln -sf /system/etc/firmware $(TARGET_OUT)/vendor/firmware)
-
 endif
