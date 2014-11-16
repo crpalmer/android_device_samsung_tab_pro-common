@@ -42,6 +42,7 @@ TARGET_NO_RPC := true
 
 # Graphics
 TARGET_HAVE_NEW_GRALLOC := true
+BOARD_USES_LEGACY_MMAP := true
 
 # Hardware
 BOARD_HARDWARE_CLASS += device/samsung/tabpro-common/cmhw
