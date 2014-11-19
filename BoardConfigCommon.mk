@@ -43,6 +43,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # GPS
 TARGET_NO_RPC := true
+TARGET_GPS_HAL_PATH := device/samsung/mondrianwifi/gps
 
 # Graphics
 TARGET_HAVE_NEW_GRALLOC := true
