@@ -98,6 +98,7 @@ BOARD_SEPOLICY_UNION += \
   mm-pp-daemon.te \
   mm-qcamerad.te \
   mpdecision.te \
+  rild.te \
   rmt_storage.te \
   system_app.te \
   system_server.te \
