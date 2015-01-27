@@ -87,7 +87,7 @@ BOARD_PROVIDES_LIBRIL := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/samsung/mondrianwifi/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/tabpro-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
   file_contexts \
