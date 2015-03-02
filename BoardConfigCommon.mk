@@ -79,9 +79,6 @@ BOARD_RECOVERY_SWIPE := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_USES_MMCUTILS := true
 
-# Release
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/tabpro-common/releasetools
-
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/tabpro-common/ril
 BOARD_PROVIDES_LIBRIL := true
