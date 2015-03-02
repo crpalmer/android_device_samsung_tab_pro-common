@@ -229,7 +229,6 @@ vendor/lib/libqc-opt.so
 
 # DRM
 bin/qseecomd
-lib/drm/libfwdlockengine.so
 lib/liboemcrypto.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libdrmdecrypt.so
@@ -242,7 +241,6 @@ vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVphoneAPI.so
 vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # IPC router security
