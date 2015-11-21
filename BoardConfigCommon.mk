@@ -92,26 +92,6 @@ BOARD_PROVIDES_LIBRIL := true
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/samsung/tabpro-common/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-  file_contexts \
-  file.te \
-  init.te \
-  keystore.te \
-  mediaserver.te \
-  mm-pp-daemon.te \
-  mm-qcamerad.te \
-  mpdecision.te \
-  rild.te \
-  rmt_storage.te \
-  system_app.te \
-  system_server.te \
-  tee.te \
-  thermal-engine.te \
-  time_daemon.te \
-  ueventd.te \
-  vold.te \
-  wcnss-service.te \
-
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_HOSTAPD_DRIVER := NL80211
