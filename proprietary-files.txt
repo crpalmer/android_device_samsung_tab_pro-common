@@ -235,7 +235,6 @@ vendor/lib/libqc-opt.so
 
 # DRM
 bin/qseecomd
-lib/drm/libfwdlockengine.so
 lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
@@ -247,7 +246,6 @@ vendor/lib/libsecureui.so
 vendor/lib/lib-sec-disp.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVphoneAPI.so
