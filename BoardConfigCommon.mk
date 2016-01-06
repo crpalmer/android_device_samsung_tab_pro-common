@@ -87,6 +87,7 @@ BOARD_USES_MMCUTILS := true
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/tabpro-common/ril
 BOARD_PROVIDES_LIBRIL := true
+BOARD_PROVIDES_RILD := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
