@@ -88,6 +88,7 @@ BOARD_USES_MMCUTILS := true
 BOARD_RIL_CLASS := ../../../device/samsung/tabpro-common/ril
 BOARD_PROVIDES_LIBRIL := true
 BOARD_PROVIDES_RILD := true
+COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

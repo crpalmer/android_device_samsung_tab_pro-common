@@ -351,6 +351,39 @@ public class TabproLteRIL extends RIL {
         return rr;
     }
 
+    @Override
+    public void getHardwareConfig(Message response) {
+        Rlog.v(RILJ_LOG_TAG, "tabproRIL: getHardwareConfig");
+        failNewRequest(response);
+    }
+
+    @Override
+    public void getRadioCapability(Message response) {
+        Rlog.v(RILJ_LOG_TAG, "tabproRIL: getRadioCapability");
+        if (response != null) {
+            AsyncResult.forMessage(response, makeStaticRadioCapability(), null);
+            response.sendToTarget();
+        }
+    }
+
+    @Override
+    public void startLceService(int reportIntervalMs, boolean pullMode, Message response) {
+        Rlog.v(RILJ_LOG_TAG, "tabproRIL: startLcdService");
+        failNewRequest(response);
+    }
+
+    @Override
+    protected void
+    send(RILRequest rr) {
+        if (rr.mRequest >= 114) {
+            Rlog.v(RILJ_LOG_TAG, "tabproRIL: barf, jacked up request that we need to fix");
+            rr.onError(REQUEST_NOT_SUPPORTED, null);
+            rr.release();
+        } else {
+            super.send(rr);
+        }
+    }
+
     private void
     dialEmergencyCall(String address, int clirMode, Message result) {
         RILRequest rr;
@@ -409,5 +442,15 @@ public class TabproLteRIL extends RIL {
             s.append(bytes[i]);
         }
         riljLog("parcel position=" + p.dataPosition() + ": " + s);
+    }
+
+    private void failNewRequest(Message response) {
+        if (response != null) {
+            Rlog.v(RILJ_LOG_TAG, "tabproRIL: failing with REQUEST_NOT_SUPPORTED");
+            CommandException ex;
+            ex = new CommandException(CommandException.Error.REQUEST_NOT_SUPPORTED);
+            AsyncResult.forMessage(response, null, ex);
+            response.sendToTarget();
+        }
     }
 }
