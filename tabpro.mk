@@ -46,6 +46,10 @@ PRODUCT_PACKAGES += \
     libshim_qcopt \
     libxml2
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
